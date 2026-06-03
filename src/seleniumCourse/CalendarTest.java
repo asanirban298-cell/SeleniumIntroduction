@@ -20,7 +20,7 @@ public class CalendarTest {
 		driver.manage().window().maximize();
 
 		String targetMonth = "11"; // November (index-based, 0=Jan, so 11 = December)
-		String targetYear = "1990";
+		String targetYear = "2026";
 		String targetDate = "6";
 
 		driver.findElement(By.cssSelector(".react-date-picker__calendar-button__icon")).click();

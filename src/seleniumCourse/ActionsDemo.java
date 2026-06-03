@@ -22,12 +22,12 @@ public class ActionsDemo {
 		Actions ac = new Actions(driver);
 		// Move to textbox element, type data in CAPS and select the data
 		ac.moveToElement(driver.findElement(By.id("twotabsearchtextbox"))).click().keyDown(Keys.SHIFT).sendKeys("hello")
-				.doubleClick().build().perform();
+				.doubleClick().perform();
 		// Moves to specific element - MouseHover action
 		WebElement hover = driver.findElement(By.xpath("//div[@id='nav-link-accountList']"));
-		ac.moveToElement(hover).build().perform();
+		ac.moveToElement(hover).perform();
 		Thread.sleep(1000);
-		ac.moveToElement(hover).contextClick().build().perform();
+		ac.moveToElement(hover).contextClick().perform();
 		//
 
 	}

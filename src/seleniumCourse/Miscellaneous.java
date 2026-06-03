@@ -3,7 +3,9 @@ package seleniumCourse;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Set;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -19,12 +21,17 @@ public class Miscellaneous {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();// Maximize browser
-		driver.manage().deleteAllCookies();// Delete all cookies
+		// driver.manage().deleteAllCookies();// Delete all cookies
 		driver.get(url);
 
 		// Take screenshot
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileHandler.copy(src, new File("/Users/anirbansarkar/Documents/PERSONAL/UDEMY - SELENIUM/screenshot.png"));
+
+		Set<Cookie> allCookies = driver.manage().getCookies();
+		for (Cookie cookie : allCookies) {
+			System.out.println("Cookie Name: " + cookie.getName());
+		}
 
 	}
 
